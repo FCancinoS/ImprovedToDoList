@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
       Shopping List
     </title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>   
   </head>
   <body>
     <div class="container">
@@ -11,16 +15,18 @@
         Shopping List
       </h1>
       <form>
-          <label>
-            Add an item
-          </label>
-          <input type="text" placeholder="e.g., broccoli">
-          <button type="submit">
-            Add item
-          </button>
+        <label>
+          Add an item
+        </label>
+        <input id="entrada" type="text" placeholder="e.g., broccoli" >
+        <button id="button" type="submit" >
+          Add item
+        </button>
       </form>
-      <ul>
-      </ul>
+        <ul>
+        </ul>    
     </div>
+    <script src="hola.js" ></script>
   </body>
-</html>
+  </html>
+  
