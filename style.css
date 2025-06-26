@@ -1,52 +1,220 @@
-*{
-    margin: auto;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
-body{
-    background-image: url(alberta-amazing-attraction-banff-417074.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-h1{
-    padding: 10px;
-}
-label{
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.container{
-    margin-top: 50px;
-    margin-left: 300px;
-    margin-bottom: 300px;
-    margin-right: 300px;
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 50px;
+body {
+  background-image: url('./img/market.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* opcional para efecto parallax */
+  min-height: 100vh;
 }
 
-li{
-    list-style-type: none;
-    display: flex;
+/* .container {
+  height: 90vh;
+  max-width: 600px;
+  margin: 60px auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+} */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  height: 90vh;
+  margin: 60px auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+
+h1, h2 {
+  padding: 10px;
+  font-weight: 600;
+}
+
+label {
+  margin: 10px 0 5px;
+  font-weight: 500;
+  display: block;
+}
+
+.bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 42px;
+  font-size: 14px;
+}
+
+button {
+  padding: 0 15px;
+  background-color: rgb(20, 20, 95);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* .list-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+} */
+.list-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 5px;
+  background-color: white;
+  width: 100%;
+  max-width: 500px;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+li p {
+  margin: 0;
+  flex: 1;
+  font-size: 14px;
+}
+
+li div {
+  display: flex;
+  gap: 8px;
+}
+
+.borrar {
+  background-color: orangered;
+}
+
+.revisado {
+  background-color: green;
+}
+
+.borrar, .revisado {
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revisado i, .borrar i {
+  font-size: 14px;
+  margin: 0 2px;
+  pointer-events: none;
+}
+
+li.ready p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  /* .container {
+    height: auto;
+    margin: 20px;
+    padding: 20px 10px;
+  } */
+  .container {
+    height: 95vh; /* un poco más en móvil */
     margin: 10px;
-    border: 1px black solid;
-    width: 500px;
-    height: 50px;
-}
+  }
 
-button{
-    background-color: rgb(20, 20, 95);
-    color: white;
-    border: 1px white solid;
-    border-radius: 3px;
-}
 
-.ready{
-    text-decoration: line-through;
-}
-.borrar{
-    background-color: orangered;
-}
-.revisado{
-    background-color: green;
+  input {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  button {
+    width: 20%;
+    font-size: 16px;
+  }
+
+  /* li {
+    flex-direction: column;
+    align-items: flex-start;
+  } */
+
+  li div {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+
+  .borrar, .revisado {
+    width: 38px;
+    height: 30px;
+  }
+
+  .revisado i, .borrar i {
+    font-size: 13px;
+  }
+  .list-container {
+    flex: 1;
+    max-height: unset; /* eliminamos restricciones anteriores */
+  }
 }

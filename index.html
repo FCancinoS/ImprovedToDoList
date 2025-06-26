@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      Shopping List
-    </title>
-    <link rel="stylesheet" href="style.css"> 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>   
-  </head>
-  <body>
-    <div class="container">
-      <h1>
-        Shopping List
-      </h1>
-      <form>
-        <label>
-          Add an item
-        </label>
-        <input id="entrada" type="text" placeholder="e.g., broccoli" >
-        <button id="button" type="submit" >
-          Add item
-        </button>
-      </form>
-        <ul>
-        </ul>    
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="img/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="img/favicons/favicon-128x128.png">
+
+</head>
+<body>
+  <div class="container">
+    <h2>Lista del Super</h2>
+    <form>
+      <label>Agrega un artículo</label>
+      <div class="bar">
+        <input id="entrada" type="text" placeholder="ejemplo: reja de huevos" />
+        <button id="button" type="submit"><i class="fas fa-plus"></i></button>
+      </div>
+    </form>
+    <div class="list-container">
+      <ul></ul>
     </div>
-    <script src="hola.js" ></script>
-  </body>
-  </html>
-  
+  </div>
+  <script src="hola.js"></script>
+</body>
+</html>
