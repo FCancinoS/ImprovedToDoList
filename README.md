@@ -27,10 +27,15 @@ Proyecto disponible en [https://fcancinos.github.io/ImprovedToDoList/](https://f
 ## 📦 Estructura del proyecto
 
 📁 lista-super/
+
 ├── index.html # Página principal con el formulario y estructura visual
+
 ├── style.css # Estilos responsivos y adaptados
+
 ├── hola.js # Lógica de interacción de la lista
+
 ├──  README.md # Este documento
+
 └── img # favicons, screenshots y fondos de la aplicación
 
 
