@@ -12,52 +12,35 @@ body {
   background-position: center center;
   background-attachment: fixed; /* opcional para efecto parallax */
   min-height: 100vh;
+  overflow: hidden;
 }
-
-/* .container {
-  height: 90vh;
-  max-width: 600px;
-  margin: 60px auto;
-  background-color: rgba(255, 255, 255, 0.75);
-  padding: 15px;
-  text-align: center;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-} */
 .container {
   display: flex;
   flex-direction: column;
   max-width: 600px;
   height: 90vh;
   margin: 60px auto;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 15px;
   text-align: center;
   border-radius: 10px;
   overflow: hidden;
+  margin-top: 10px;
 }
-
-
-
-
 h1, h2 {
   padding: 10px;
   font-weight: 600;
 }
-
 label {
   margin: 10px 0 5px;
   font-weight: 500;
   display: block;
 }
-
 .bar {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
 }
-
 input {
   flex: 1;
   padding: 10px;
@@ -66,7 +49,6 @@ input {
   height: 42px;
   font-size: 14px;
 }
-
 button {
   padding: 0 15px;
   background-color: rgb(20, 20, 95);
@@ -79,19 +61,9 @@ button {
   align-items: center;
   justify-content: center;
 }
-
 button:hover {
   opacity: 0.9;
 }
-
-/* .list-container {
-  flex: 1;
-  overflow-y: auto;
-  margin-top: 10px;
-  padding-right: 5px;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-} */
 .list-container {
   flex: 1;
   overflow-y: auto;
@@ -100,20 +72,16 @@ button:hover {
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
 }
-
 .list-container::-webkit-scrollbar {
   width: 6px;
 }
-
 .list-container::-webkit-scrollbar-thumb {
   background-color: #999;
   border-radius: 10px;
 }
-
 ul {
   padding: 0;
 }
-
 li {
   list-style-type: none;
   display: flex;
@@ -128,26 +96,21 @@ li {
   font-size: 14px;
   padding: 6px 10px;
 }
-
 li p {
   margin: 0;
   flex: 1;
   font-size: 14px;
 }
-
 li div {
   display: flex;
   gap: 8px;
 }
-
 .borrar {
   background-color: orangered;
 }
-
 .revisado {
   background-color: green;
 }
-
 .borrar, .revisado {
   color: white;
   border: none;
@@ -159,18 +122,15 @@ li div {
   align-items: center;
   justify-content: center;
 }
-
 .revisado i, .borrar i {
   font-size: 14px;
   margin: 0 2px;
   pointer-events: none;
 }
-
 li.ready p {
   text-decoration: line-through;
   opacity: 0.6;
 }
-
 /* Responsive */
 @media (max-width: 600px) {
   /* .container {
@@ -182,34 +142,23 @@ li.ready p {
     height: 95vh; /* un poco más en móvil */
     margin: 10px;
   }
-
-
   input {
     width: 80%;
     font-size: 14px;
   }
-
   button {
     width: 20%;
     font-size: 16px;
   }
-
-  /* li {
-    flex-direction: column;
-    align-items: flex-start;
-  } */
-
   li div {
     width: 100%;
     justify-content: flex-end;
     margin-top: 5px;
   }
-
   .borrar, .revisado {
     width: 38px;
     height: 30px;
   }
-
   .revisado i, .borrar i {
     font-size: 13px;
   }
