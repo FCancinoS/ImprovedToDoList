@@ -1,3 +1,20 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+import { getDatabase, ref, onValue, push, update, remove } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAamr4cEpGYcHHhmDJ9a2EuVqeMDeoiuYg",
+  authDomain: "market-list-566f4.firebaseapp.com",
+  databaseURL: "https://market-list-566f4-default-rtdb.firebaseio.com",
+  projectId: "market-list-566f4",
+  storageBucket: "market-list-566f4.firebasestorage.app",
+  messagingSenderId: "1090519932866",
+  appId: "1:1090519932866:web:d77f70ab3e89d40202c05b",
+  measurementId: "G-JH7X22EJQP"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
 let currentSession = null;
 
 $(document).ready(function () {
@@ -14,7 +31,7 @@ function crearSesion(e) {
   const codigo = generarCodigo();
   currentSession = codigo;
   window.location.hash = codigo;
-  $("#session-id").remove(); // Limpia si ya existe
+  $("#session-id").remove();
   $(".container h2").after(`<p id="session-id">ID de sesión: ${codigo}</p>`);
   cargarSesion();
 }
@@ -35,13 +52,13 @@ function cargarSesion() {
   $(".container").fadeIn();
   $("ul").empty();
 
-  const sesionRef = window.ref(window.db, `listas/${currentSession}`);
-  window.onValue(sesionRef, (snapshot) => {
+  const sesionRef = ref(db, `listas/${currentSession}`);
+  onValue(sesionRef, (snapshot) => {
     $("ul").empty();
     snapshot.forEach((child) => {
       const key = child.key;
       const { texto, revisado } = child.val();
-      const li = $(`
+      const li = $(` 
         <li data-id="${key}" class="${revisado ? 'ready' : ''}">
           <p>${texto}</p>
           <div>
@@ -60,8 +77,11 @@ function addItem(e) {
   const texto = $("#entrada").val().trim();
   if (!texto || !currentSession) return;
 
-  const sesionRef = window.ref(window.db, `listas/${currentSession}`);
-  window.push(sesionRef, { texto, revisado: false });
+  const sesionRef = ref(db, `listas/${currentSession}`);
+  push(sesionRef, { 
+    texto,
+     revisado: false
+   });
   $("#entrada").val("");
 }
 
@@ -71,7 +91,7 @@ function toggleCheck(e) {
   const key = li.data("id");
   const checked = li.hasClass("ready");
 
-  window.update(window.ref(window.db, `listas/${currentSession}/${key}`), {
+  update(ref(db, `listas/${currentSession}/${key}`), {
     revisado: !checked
   });
 }
@@ -79,7 +99,7 @@ function toggleCheck(e) {
 function deleteItem(e) {
   e.preventDefault();
   const key = $(this).closest("li").data("id");
-  window.remove(window.ref(window.db, `listas/${currentSession}/${key}`));
+  remove(ref(db, `listas/${currentSession}/${key}`));
 }
 
 function generarCodigo() {
