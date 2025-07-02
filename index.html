@@ -36,6 +36,33 @@
       <ul></ul>
     </div>
   </div>
+  <script>
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+      import { getDatabase, ref, onValue, push, update, remove } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAamr4cEpGYcHHhmDJ9a2EuVqeMDeoiuYg",
+        authDomain: "market-list-566f4.firebaseapp.com",
+        databaseURL: "https://market-list-566f4-default-rtdb.firebaseio.com",
+        projectId: "market-list-566f4",
+        storageBucket: "market-list-566f4.firebasestorage.app",
+        messagingSenderId: "1090519932866",
+        appId: "1:1090519932866:web:d77f70ab3e89d40202c05b",
+        measurementId: "G-JH7X22EJQP"
+      };
+
+      // Inicializa Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // Pasa los objetos globalmente para usarlos en hola.js
+      window.db = db;
+      window.firebaseRef = ref;
+      window.firebaseOnValue = onValue;
+      window.firebasePush = push;
+      window.firebaseUpdate = update;
+      window.firebaseRemove = remove;
+  </script>
   <script type="module" src="app.js"></script>
 </body>
 </html>
