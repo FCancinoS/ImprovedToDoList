@@ -1,13 +1,10 @@
-
 let currentSession = null;
 
-// Mapeamos los botones y acciones del DOM
 $(document).ready(function () {
   $(document).on("click", "#button", addItem);
   $(document).on("click", ".revisado", toggleCheck);
   $(document).on("click", ".borrar", deleteItem);
 
-  // Manejadores de sesión
   $("#crear").on("click", crearSesion);
   $("#entrar").on("click", entrarSesion);
 });
@@ -17,6 +14,8 @@ function crearSesion(e) {
   const codigo = generarCodigo();
   currentSession = codigo;
   window.location.hash = codigo;
+  $("#session-id").remove(); // Limpia si ya existe
+  $(".container h2").after(`<p id="session-id">ID de sesión: ${codigo}</p>`);
   cargarSesion();
 }
 
@@ -26,6 +25,8 @@ function entrarSesion(e) {
   if (codigo === "") return;
   currentSession = codigo;
   window.location.hash = codigo;
+  $("#session-id").remove();
+  $(".container h2").after(`<p id="session-id">ID de sesión: ${codigo}</p>`);
   cargarSesion();
 }
 
@@ -34,8 +35,8 @@ function cargarSesion() {
   $(".container").fadeIn();
   $("ul").empty();
 
-  const sesionRef = ref(db, `listas/${currentSession}`);
-  onValue(sesionRef, (snapshot) => {
+  const sesionRef = window.ref(window.db, `listas/${currentSession}`);
+  window.onValue(sesionRef, (snapshot) => {
     $("ul").empty();
     snapshot.forEach((child) => {
       const key = child.key;
@@ -59,8 +60,8 @@ function addItem(e) {
   const texto = $("#entrada").val().trim();
   if (!texto || !currentSession) return;
 
-  const sesionRef = ref(db, `listas/${currentSession}`);
-  push(sesionRef, { texto, revisado: false });
+  const sesionRef = window.ref(window.db, `listas/${currentSession}`);
+  window.push(sesionRef, { texto, revisado: false });
   $("#entrada").val("");
 }
 
@@ -70,7 +71,7 @@ function toggleCheck(e) {
   const key = li.data("id");
   const checked = li.hasClass("ready");
 
-  update(ref(db, `listas/${currentSession}/${key}`), {
+  window.update(window.ref(window.db, `listas/${currentSession}/${key}`), {
     revisado: !checked
   });
 }
@@ -78,7 +79,7 @@ function toggleCheck(e) {
 function deleteItem(e) {
   e.preventDefault();
   const key = $(this).closest("li").data("id");
-  remove(ref(db, `listas/${currentSession}/${key}`));
+  window.remove(window.ref(window.db, `listas/${currentSession}/${key}`));
 }
 
 function generarCodigo() {
