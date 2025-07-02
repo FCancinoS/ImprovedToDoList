@@ -31,10 +31,10 @@ function crearSesion(e) {
   const codigo = generarCodigo();
   currentSession = codigo;
   window.location.hash = codigo;
-  $("#session-id").remove();
-  $(".container h2").after(`<p id="session-id">ID de sesión: ${codigo}</p>`);
+  insertarEtiquetaSesion(codigo);
   cargarSesion();
 }
+
 
 function entrarSesion(e) {
   e.preventDefault();
@@ -42,8 +42,7 @@ function entrarSesion(e) {
   if (codigo === "") return;
   currentSession = codigo;
   window.location.hash = codigo;
-  $("#session-id").remove();
-  $(".container h2").after(`<p id="session-id">ID de sesión: ${codigo}</p>`);
+  insertarEtiquetaSesion(codigo);
   cargarSesion();
 }
 
@@ -71,7 +70,30 @@ function cargarSesion() {
     });
   });
 }
+function insertarEtiquetaSesion(codigo) {
+  $("#session-id").remove(); // elimina anterior
+  $(".container h2").after(`
+    <div class="copy-button">     
+    <p id="session-id">
+      ID de sesión: ${codigo}
+    </p>
+      <button id="copiar-link" title="Copiar enlace de acceso">
+        <i class="fas fa-copy"></i>
+      </button>
+      </div>
+  `);
 
+  $("#copiar-link").on("click", function () {
+    const enlace = `${location.origin}${location.pathname}#${codigo}`;
+    const mensaje = `En esta dirección: ${enlace} entra con el código: ${codigo}`;
+    
+    navigator.clipboard.writeText(mensaje).then(() => {
+      alert("Enlace copiado al portapapeles");
+    }).catch(() => {
+      alert("No se pudo copiar el enlace");
+    });
+  });
+}
 function addItem(e) {
   e.preventDefault();
   const texto = $("#entrada").val().trim();
