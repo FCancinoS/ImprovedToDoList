@@ -167,3 +167,56 @@ li.ready p {
     max-height: unset; /* eliminamos restricciones anteriores */
   }
 }
+
+.session-bar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado absoluto */
+  width: 90%;
+  max-width: 320px;
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 20px;
+  border-radius: 12px;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.session-bar h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.session-bar p {
+  margin-bottom: 10px;
+}
+
+.session-bar input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.session-bar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #221c66;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.session-bar button:hover {
+  background-color: #191347;
+}
