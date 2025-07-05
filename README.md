@@ -2,7 +2,7 @@
 
 Una aplicación web minimalista y responsiva para crear listas de compras, ideal para uso doméstico. Desarrollada con HTML, CSS y JavaScript puro, y preparada para funcionar con Firebase como backend (próximamente).
 
-Proyecto disponible en [https://fcancinos.github.io/ImprovedToDoList/](https://fcancinos.github.io/ImprovedToDoList/)
+Proyecto disponible en [https://fcancinos.github.io/Smarket/](https://fcancinos.github.io/Smarket/)
 
 ## Características actuales
 
@@ -36,4 +36,4 @@ Proyecto disponible en [https://fcancinos.github.io/ImprovedToDoList/](https://f
 └── img # favicons, screenshots y fondos de la aplicación
 ```
 
-Proyecto disponible en [https://fcancinos.github.io/ImprovedToDoList/](https://fcancinos.github.io/ImprovedToDoList/)
+Proyecto disponible en [https://fcancinos.github.io/Smarket/](https://fcancinos.github.io/Smarket/)
